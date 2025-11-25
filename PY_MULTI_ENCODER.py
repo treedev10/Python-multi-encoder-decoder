@@ -1,3 +1,12 @@
+#
+#python multi encoder/decoder by tree43
+#version 1.0.0
+#
+
+
+
+
+
 import time
 
 
@@ -122,13 +131,44 @@ def encode():
  print(f"Program took {elapsed_time:.8f} seconds to run (wall clock time).")
  print("----------------")
 
+def decode():
+    import base64
+    print("----------------")
+    text_to_decode = input("text to decode:")
+    print("encoded text^")
+    print("----------------")
+    
+    try:
+     encoded_bytes = text_to_decode.encode('ascii')
+     decoded_bytes = base64.b64decode(encoded_bytes)
+
+     decoded_string = decoded_bytes.decode('utf-8')
+     print(f"Decoded base64: {decoded_string}")
+    except:
+        print("base64 err")
+
+    try:
+     encoded_bytes32 = text_to_decode.encode('ascii')
+     decoded_bytes32 = base64.b32decode(encoded_bytes32)
+
+     decoded_string32 = decoded_bytes32.decode('utf-8')
+     print(f"Decoded base32: {decoded_string32}")
+    except:
+        print("base32 err")
+    
+
+
+
+
 
 encode_decode = input("encode or decode(decode is in progress)")
 
 if encode_decode == "encode":
     encode()
-else:
-    print("invalid")
+
+if encode_decode =="decode":
+      decode()
+
 
 
 
