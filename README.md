@@ -9,4 +9,6 @@ morse code,
 
 -----------------
 
-i will be adding more soon.
+coming soon:
+decoding
+
