@@ -1,6 +1,6 @@
 #
 #python multi encoder by tree43 and chatgpt lol
-v = " v1.1.1"
+ver = " v1.1.2"
 #
 
 import tkinter as tk
@@ -134,34 +134,32 @@ def run_action(event=None):
 
 # Build window
 root = tk.Tk()
-root.title(f"python multi decoder/encoder{v}")
+root.title(f"python multi decoder/encoder{ver}")
 root.geometry("900x480")
 root.resizable(False,False)
-               
-
 main_frame = tk.Frame(root)
 main_frame.pack(fill="both", expand=True)
 
 # Left panel for buttons
 left_frame = tk.Frame(main_frame, width=220, bg="#2b2b2b")
 left_frame.pack(side="left", fill="y")
-lable = tk.Label(left_frame,text="Enter text here",font=("Consolas", 12),bg="#2b2b2b",fg="lime")
+lable = tk.Label(left_frame,text="Enter text here",font=("Consolas", 12),bg="#2b2b2b",fg="lime",)
 lable.place(x=10,y=420)
 
 # Ensure left_frame keeps visible width
 left_frame.pack_propagate(False)
 
 # Buttons
-mode_btn = tk.Button(left_frame, text="Mode: Encode", command=toggle_mode, font=("Consolas", 12))
+mode_btn = tk.Button(left_frame, text="Mode: Encode", command=toggle_mode, font=("Consolas", 12),fg=("lime"),bg="grey")
 mode_btn.pack(padx=12, pady=(20,10), fill="x")
 
-run_btn = tk.Button(left_frame, text="Run", command=run_action, font=("Consolas", 12))
+run_btn = tk.Button(left_frame, text="Run", command=run_action, font=("Consolas", 12),fg=("lime"),bg="grey")
 run_btn.pack(padx=12, pady=10, fill="x")
 
 # Optional Clear button (handy)
 def clear_terminal():
     terminal.delete("1.0", tk.END)
-clear_btn = tk.Button(left_frame, text="Clear", command=clear_terminal, font=("Consolas", 12))
+clear_btn = tk.Button(left_frame, text="Clear", command=clear_terminal, font=("Consolas", 12),fg=("lime"),bg="grey")
 clear_btn.pack(padx=12, pady=10, fill="x")
 
 # Right panel (terminal)
@@ -175,19 +173,15 @@ terminal = scrolledtext.ScrolledText(
 terminal.pack(fill="both", expand=True)
 
 # Entry located at bottom-left area: put in root but aligned to bottom and full width
-entry = tk.Entry(root, font=("Consolas", 12))
-entry.pack(fill="x", side="bottom", padx=6, pady=6)
+entry = tk.Entry(root, font=("Consolas", 12),bg="grey",fg="lime")
+entry.pack(fill="x", side="bottom")
 entry.focus_set()
 
 # Bind Enter to run_action
 entry.bind("<Return>", run_action)
 
 # initial message
-terminal.insert(tk.END, "Terminal ready!\nType text below and press RUN (or Enter).\nToggle Mode on the left.\n\n")
+terminal.insert(tk.END, "Type text below and press RUN (or Enter).\nToggle Mode on the left.\n\n")
 terminal.see(tk.END)
 
 root.mainloop()
-
-
-
-
